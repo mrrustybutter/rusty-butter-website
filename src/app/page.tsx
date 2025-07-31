@@ -340,9 +340,8 @@ export default function Home() {
         const activityCmd = cmd.split(' ')
         const streamerUsername = activityCmd[2] || 'rustybutterbot'
         newHistory.push(`[STREAM ACTIVITY] Loading ${streamerUsername}'s streaming history...`)
-        setHistory(newHistory)
-        setCommandHistory(prev => [...prev, cmd])
-        setCommand('')
+        setTerminalHistory(newHistory)
+        setTerminalInput('')
         
         // Fetch streaming data for the specified user
         fetch(`/api/twitch/streams?username=${streamerUsername}`)
@@ -354,11 +353,11 @@ export default function Home() {
               date: new Date(stream.date)
             }))
             setTwitchData(data)
-            setHistory(prev => [...prev, `[+] Loaded ${data.totalStreams || 0} streams from ${streamerUsername}`])
+            setTerminalHistory(prev => [...prev, `[+] Loaded ${data.totalStreams || 0} streams from ${streamerUsername}`])
           })
           .catch((error) => {
             console.error('Failed to fetch stream activity:', error)
-            setHistory(prev => [...prev, `[!] Failed to load stream activity for ${streamerUsername}`])
+            setTerminalHistory(prev => [...prev, `[!] Failed to load stream activity for ${streamerUsername}`])
           })
         return // Exit early since we're handling async
       
