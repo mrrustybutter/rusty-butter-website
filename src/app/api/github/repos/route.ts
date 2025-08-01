@@ -59,6 +59,11 @@ export async function GET(request: Request) {
     const sort = searchParams.get('sort') || 'updated' // updated, stars, created
     const loadDetails = searchParams.get('details') === 'true'
     
+    // Log if GitHub token is not set (optional but recommended)
+    if (!process.env.GITHUB_TOKEN) {
+      console.warn('GITHUB_TOKEN not set. API rate limit is 60 requests/hour. Set GITHUB_TOKEN to increase to 5000/hour.')
+    }
+    
     // Return cached data if still valid
     const cacheKey = `${sort}-${page}-${perPage}-${loadDetails}`
     if (repoDataCache && repoDataCache.cacheKey === cacheKey && Date.now() < cacheExpiry) {

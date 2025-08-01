@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server'
 import { TwitchDataResponse } from '@/types'
 
-const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID!
-const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET!
+const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID
+const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET
+
+// Check if environment variables are set
+if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET) {
+  console.error('Missing Twitch API credentials. Please set TWITCH_CLIENT_ID and TWITCH_CLIENT_SECRET environment variables.')
+}
 
 // Cache for access token
 let accessToken: string | null = null
@@ -63,6 +68,17 @@ async function getUserId(username: string, token: string) {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const username = searchParams.get('username') || 'rustybutterbot'
+  
+  // Return error if environment variables are missing
+  if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET) {
+    return NextResponse.json(
+      { 
+        error: 'Twitch API credentials not configured',
+        message: 'Please set TWITCH_CLIENT_ID and TWITCH_CLIENT_SECRET in your environment variables'
+      },
+      { status: 503 }
+    )
+  }
   
   try {
     
