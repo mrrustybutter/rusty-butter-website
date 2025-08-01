@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useEffect, useRef } from 'react'
 import { ActivityData } from '@/types'
+import Image from 'next/image'
 
 interface Props {
   theme: 'dark' | 'weirdo'
@@ -12,6 +13,7 @@ interface Props {
   title?: string
   subtitle?: string
   compact?: boolean
+  asmongoldMode?: boolean
 }
 
 export default function ActivityGraph({ 
@@ -22,7 +24,8 @@ export default function ActivityGraph({
   tooltipContent,
   title = 'Activity',
   subtitle = '52 weeks',
-  compact = false
+  compact = false,
+  asmongoldMode = false
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [weekCount, setWeekCount] = useState(52)
@@ -189,25 +192,44 @@ export default function ActivityGraph({
                       className="relative group"
                       style={{ gridColumn: weekIndex + 1, gridRow: dayIndex + 1 }}
                     >
-                      <div
-                        className={`rounded-sm transition-all h-[9px] w-[9px] ${
-                          isInFuture ? 'opacity-0' :
-                          data && onDotClick ? 'cursor-pointer' : ''
-                        } ${
-                          theme === 'dark'
-                            ? intensity > 0.75 ? 'bg-green-400 hover:ring-2 hover:ring-green-400' 
-                              : intensity > 0.5 ? 'bg-green-500 hover:ring-2 hover:ring-green-500'
-                              : intensity > 0.25 ? 'bg-green-600 hover:ring-2 hover:ring-green-600'
-                              : intensity > 0 ? 'bg-green-800 hover:ring-2 hover:ring-green-800'
-                              : 'bg-[#161b22]'
-                            : intensity > 0.75 ? 'bg-green-500 hover:ring-2 hover:ring-green-500' 
-                              : intensity > 0.5 ? 'bg-green-400 hover:ring-2 hover:ring-green-400'
-                              : intensity > 0.25 ? 'bg-green-300 hover:ring-2 hover:ring-green-300'
-                              : intensity > 0 ? 'bg-green-200 hover:ring-2 hover:ring-green-200'
-                              : 'bg-gray-100'
-                        }`}
-                        onClick={() => data && onDotClick && onDotClick(data)}
-                      />
+                      {asmongoldMode && !isInFuture ? (
+                        <div 
+                          className={`h-[9px] w-[9px] overflow-hidden rounded-sm ${
+                            data && onDotClick ? 'cursor-pointer' : ''
+                          }`}
+                          onClick={() => data && onDotClick && onDotClick(data)}
+                        >
+                          <Image 
+                            src="/asmongold.jpg" 
+                            alt="Asmongold" 
+                            width={9} 
+                            height={9} 
+                            className={`w-full h-full object-cover ${
+                              intensity > 0 ? `opacity-${Math.round(intensity * 100)}` : 'opacity-10'
+                            }`}
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className={`rounded-sm transition-all h-[9px] w-[9px] ${
+                            isInFuture ? 'opacity-0' :
+                            data && onDotClick ? 'cursor-pointer' : ''
+                          } ${
+                            theme === 'dark'
+                              ? intensity > 0.75 ? 'bg-green-400 hover:ring-2 hover:ring-green-400' 
+                                : intensity > 0.5 ? 'bg-green-500 hover:ring-2 hover:ring-green-500'
+                                : intensity > 0.25 ? 'bg-green-600 hover:ring-2 hover:ring-green-600'
+                                : intensity > 0 ? 'bg-green-800 hover:ring-2 hover:ring-green-800'
+                                : 'bg-[#161b22]'
+                              : intensity > 0.75 ? 'bg-green-500 hover:ring-2 hover:ring-green-500' 
+                                : intensity > 0.5 ? 'bg-green-400 hover:ring-2 hover:ring-green-400'
+                                : intensity > 0.25 ? 'bg-green-300 hover:ring-2 hover:ring-green-300'
+                                : intensity > 0 ? 'bg-green-200 hover:ring-2 hover:ring-green-200'
+                                : 'bg-gray-100'
+                          }`}
+                          onClick={() => data && onDotClick && onDotClick(data)}
+                        />
+                      )}
                       
                       {/* Tooltip */}
                       {showTooltip && data && tooltipContent && !isInFuture && (

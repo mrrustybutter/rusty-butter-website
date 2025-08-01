@@ -13,9 +13,10 @@ interface Props {
   theme: 'dark' | 'weirdo'
   commitActivity: CommitWeek[]
   repoName: string
+  asmongoldMode?: boolean
 }
 
-export default function RepoActivityGraph({ theme, commitActivity }: Props) {
+export default function RepoActivityGraph({ theme, commitActivity, asmongoldMode }: Props) {
   const activityData = useMemo(() => {
     const data: Array<{date: Date, intensity: number, data: {commits: number}}> = []
     
@@ -58,6 +59,7 @@ export default function RepoActivityGraph({ theme, commitActivity }: Props) {
       tooltipContent={tooltipContent}
       title="Activity"
       subtitle={`${totalCommits} commits in the last year`}
+      asmongoldMode={asmongoldMode}
     />
   )
 }

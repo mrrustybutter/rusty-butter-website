@@ -19,9 +19,10 @@ interface Props {
   theme: 'dark' | 'weirdo'
   twitchData: TwitchDataResponse | null
   onStreamClick: (stream: StreamClickData) => void
+  asmongoldMode?: boolean
 }
 
-export default function StreamingActivityGraph({ theme, twitchData, onStreamClick }: Props) {
+export default function StreamingActivityGraph({ theme, twitchData, onStreamClick, asmongoldMode }: Props) {
   const activityData = useMemo(() => {
     if (!twitchData?.streamingActivity) return []
     
@@ -66,6 +67,7 @@ export default function StreamingActivityGraph({ theme, twitchData, onStreamClic
       tooltipContent={tooltipContent}
       title="Streaming Activity"
       subtitle={`${twitchData?.totalStreams || 0} streams`}
+      asmongoldMode={asmongoldMode}
     />
   )
 }

@@ -1,111 +1,1282 @@
-
-> rusty-butter-website@0.1.0 dev
-> next dev
-
- ⚠ Port 3000 is in use by an unknown process, using available port 3003 instead.
    ▲ Next.js 15.4.5
-   - Local:        http://localhost:3003
-   - Network:      http://10.255.255.254:3003
+   - Local:        http://localhost:3000
+   - Network:      http://10.255.255.254:3000
    - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 1486ms
+ ✓ Ready in 1225ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 3.1s (637 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/20e4990947d571de.webpack.hot-update.json 404 in 3317ms
+ ⨯ ./src/app/page.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/src/app/page.tsx[0m:786:1]
+ [2m783[0m |                       </div>
+ [2m784[0m |                     </div>
+ [2m785[0m |                     )}
+ [2m786[0m |                   </div>
+     : [35;1m                  ^[0m
+ [2m787[0m |                   
+ [2m788[0m |                   {/* Load more button for lazy loading */}
+ [2m789[0m |                   {showAllRepos && githubData?.pagination?.hasMore && (
+     `----
+  [31mx[0m Unterminated regexp literal
+     ,-[[36;1;4m/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/src/app/page.tsx[0m:786:1]
+ [2m783[0m |                       </div>
+ [2m784[0m |                     </div>
+ [2m785[0m |                     )}
+ [2m786[0m |                   </div>
+     : [35;1m                   ^^^^^[0m
+ [2m787[0m |                   
+ [2m788[0m |                   {/* Load more button for lazy loading */}
+ [2m789[0m |                   {showAllRepos && githubData?.pagination?.hasMore && (
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/page.tsx
  ○ Compiling / ...
- ✓ Compiled / in -732ms (755 modules)
- GET / 200 in -446ms
- ✓ Compiled /api/github/repos in 163ms (482 modules)
- ✓ Compiled in 109ms (278 modules)
- GET /favicon.ico 200 in 473ms
- GET / 200 in 179ms
-Error getting Twitch access token: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
-Error fetching Twitch data: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
- GET /api/twitch/streams 500 in 851ms
-Error getting Twitch access token: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
-Error fetching Twitch data: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
- GET /api/twitch/streams 500 in 192ms
- GET /api/github/repos?page=1&per_page=20&details=true 200 in 1349ms
- GET /api/github/repos?page=1&per_page=20&details=true 200 in 4ms
-<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: invalid bit length repeat
+ ⨯ ./src/app/page.tsx
+Error:   [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/src/app/page.tsx[0m:786:1]
+ [2m783[0m |                       </div>
+ [2m784[0m |                     </div>
+ [2m785[0m |                     )}
+ [2m786[0m |                   </div>
+     : [35;1m                  ^[0m
+ [2m787[0m |                   
+ [2m788[0m |                   {/* Load more button for lazy loading */}
+ [2m789[0m |                   {showAllRepos && githubData?.pagination?.hasMore && (
+     `----
+  [31mx[0m Unterminated regexp literal
+     ,-[[36;1;4m/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/src/app/page.tsx[0m:786:1]
+ [2m783[0m |                       </div>
+ [2m784[0m |                     </div>
+ [2m785[0m |                     )}
+ [2m786[0m |                   </div>
+     : [35;1m                   ^^^^^[0m
+ [2m787[0m |                   
+ [2m788[0m |                   {/* Load more button for lazy loading */}
+ [2m789[0m |                   {showAllRepos && githubData?.pagination?.hasMore && (
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/page.tsx
+ GET /_next/static/webpack/20e4990947d571de.webpack.hot-update.json 500 in 1705ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 500 in 8ms
+ ⨯ ./src/app/page.tsx
+Error:   [31mx[0m Expected '</', got ')'
+     ,-[[36;1;4m/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/src/app/page.tsx[0m:785:1]
+ [2m782[0m |                         </span>
+ [2m783[0m |                       </div>
+ [2m784[0m |                     </div>
+ [2m785[0m |                     ))}
+     : [35;1m                     ^[0m
+ [2m786[0m |                   </div>
+ [2m787[0m |                   
+ [2m788[0m |                   {/* Load more button for lazy loading */}
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/page.tsx
+ GET /_next/static/webpack/4572de4d10e55965.webpack.hot-update.json 500 in 216ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 500 in 15ms
+ ✓ Compiled /_error in 916ms (1185 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled (1158 modules)
+ GET / 200 in 276ms
+ ✓ Compiled /api/twitch/streams in 236ms (1178 modules)
+ GET /api/twitch/streams 200 in 1266ms
+ GET /api/twitch/streams 200 in 5ms
+ GET / 200 in 123ms
+ ✓ Compiled /favicon.ico in 165ms (763 modules)
+ GET /favicon.ico 200 in 321ms
+ GET /api/twitch/streams 200 in 1201ms
+ GET /api/twitch/streams 200 in 5ms
+ GET / 200 in 105ms
+ GET /favicon.ico 200 in 6ms
+ GET /api/twitch/streams 200 in 6ms
+ GET /api/twitch/streams 200 in 11ms
+ ✓ Compiled in 356ms (1168 modules)
+ GET / 200 in 164ms
+ ✓ Compiled in 499ms (1168 modules)
+ GET / 200 in 64ms
+ GET / 200 in 68ms
+ ✓ Compiled /api/twitch/streams in 162ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 385ms
+ GET /api/twitch/streams 200 in 1375ms
+ GET /api/twitch/streams 200 in 6ms
+ GET / 200 in 160ms
+ GET /favicon.ico 200 in 6ms
+ GET /api/twitch/streams 200 in 7ms
+ GET /api/twitch/streams 200 in 9ms
+ ✓ Compiled in 139ms (427 modules)
+ ✓ Compiled in 131ms (427 modules)
+ GET / 200 in 108ms
+ GET / 200 in 16ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 69ms
+ GET /api/twitch/streams 200 in 9ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 80ms (427 modules)
+ ✓ Compiled in 110ms (427 modules)
+ GET / 200 in 112ms
+ GET / 200 in 113ms
+ GET / 200 in 22ms
+ GET / 200 in 24ms
+ GET / 200 in 23ms
+ GET /api/twitch/streams 200 in 8ms
+ GET /api/twitch/streams 200 in 5ms
+ ✓ Compiled in 96ms (427 modules)
+ GET / 200 in 102ms
+ GET / 200 in 103ms
+ ✓ Compiled in 108ms (427 modules)
+ GET / 200 in 18ms
+ GET / 200 in 17ms
+ ✓ Compiled in 314ms (1187 modules)
+ GET / 200 in 105ms
+ GET / 200 in 104ms
+ GET / 200 in 70ms
+ ✓ Compiled /favicon.ico in 124ms (762 modules)
+ GET /favicon.ico 200 in 292ms
+ GET /api/twitch/streams 200 in 1424ms
+ GET /api/twitch/streams 200 in 7ms
+ GET / 200 in 89ms
+ GET /favicon.ico 200 in 5ms
+ GET /api/twitch/streams 200 in 5ms
+ GET /api/twitch/streams 200 in 11ms
+ ✓ Compiled in 121ms (427 modules)
+ ✓ Compiled in 149ms (427 modules)
+ GET / 200 in 154ms
+ GET / 200 in 18ms
+ GET / 200 in 17ms
+ GET / 200 in 19ms
+ ✓ Compiled in 237ms (1168 modules)
+ GET / 200 in 174ms
+ GET / 200 in 16ms
+ GET / 200 in 69ms
+ ✓ Compiled /api/twitch/streams in 127ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 387ms
+ GET /api/twitch/streams 200 in 1263ms
+ GET /api/twitch/streams 200 in 4ms
+   Reload env: .env.local
+ ✓ Compiled in 184ms (1175 modules)
+ GET / 200 in 104ms
+ GET / 200 in 106ms
+ GET / 200 in 65ms
+ GET /favicon.ico 200 in 10ms
+ GET /api/twitch/streams 200 in 961ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 98ms (427 modules)
+ GET / 200 in 84ms
+ ✓ Compiled in 142ms (427 modules)
+ GET / 200 in 22ms
+ GET / 200 in 17ms
+ GET / 200 in 17ms
+ ✓ Compiled in 217ms (1189 modules)
+ GET / 200 in 68ms
+ GET / 200 in 17ms
+ GET / 200 in 48ms
+ GET /favicon.ico 200 in 17ms
+ GET /api/twitch/streams 200 in 961ms
+ GET /api/twitch/streams 200 in 4ms
+ GET / 200 in 19ms
+ GET /api/twitch/streams 200 in 6ms
+ GET /api/twitch/streams 200 in 4ms
+ GET / 200 in 21ms
+ GET / 200 in 19ms
+ GET /api/twitch/streams 200 in 7ms
+ GET /api/twitch/streams 200 in 4ms
+   Reload env: .env.local
+ ✓ Compiled in 269ms (1173 modules)
+ GET / 200 in 81ms
+ GET / 200 in 81ms
+ ✓ Compiled in 122ms (427 modules)
+ GET / 200 in 111ms
+ GET / 200 in 112ms
+ ✓ Compiled in 116ms (427 modules)
+ GET / 200 in 14ms
+ GET / 200 in 30ms
+ ✓ Compiled in 260ms (1187 modules)
+ GET / 200 in 85ms
+ GET / 200 in 87ms
+ ✓ Compiled in 243ms (1187 modules)
+ GET / 200 in 68ms
+ GET / 200 in 70ms
+ ✓ Compiled in 315ms (1168 modules)
+ GET / 200 in 174ms
+ GET / 200 in 176ms
+ ✓ Compiled in 81ms (427 modules)
+ ✓ Compiled in 91ms (427 modules)
+ GET / 200 in 92ms
+ GET / 200 in 91ms
+ GET / 200 in 25ms
+ GET / 200 in 27ms
+ ✓ Compiled in 174ms (1168 modules)
+ GET / 200 in 96ms
+ GET / 200 in 96ms
+ GET / 200 in 69ms
+ ✓ Compiled /api/twitch/streams in -1807ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in -1617ms
+ GET /api/twitch/streams 200 in -794ms
+ GET /api/twitch/streams 200 in 4ms
+ GET / 200 in 109ms
+ GET /favicon.ico 200 in 6ms
+ GET /api/twitch/streams 200 in 4ms
+ GET /api/twitch/streams 200 in 6ms
+ GET / 200 in 24ms
+ GET /api/twitch/streams 200 in 5ms
+ GET /api/twitch/streams 200 in 4ms
+ GET / 200 in 28ms
+ GET /api/twitch/streams 200 in 8ms
+ GET /api/twitch/streams 200 in 7ms
+ ✓ Compiled in 513ms (1187 modules)
+ GET / 200 in 117ms
+ GET / 200 in 119ms
+ ✓ Compiled in 300ms (1187 modules)
+ GET / 200 in 102ms
+ GET / 200 in 104ms
+ ✓ Compiled in 329ms (1187 modules)
+ GET / 200 in 69ms
+ GET / 200 in 71ms
+ ✓ Compiled in 293ms (1187 modules)
+ GET / 200 in 76ms
+ GET / 200 in 76ms
+ ✓ Compiled in 314ms (1187 modules)
+ GET / 200 in 81ms
+ GET / 200 in 82ms
+ GET / 200 in 70ms
+ ✓ Compiled /favicon.ico in 254ms (762 modules)
+ GET /favicon.ico 200 in 380ms
+ GET /api/twitch/streams 200 in 1223ms
+ GET /api/twitch/streams 200 in 5ms
+ GET / 200 in 104ms
+ GET /favicon.ico 200 in 4ms
+ GET /api/twitch/streams 200 in 6ms
+ GET /api/twitch/streams 200 in 8ms
+ GET / 200 in 23ms
+ GET /api/twitch/streams 200 in 7ms
+ GET /api/twitch/streams 200 in 5ms
+ ✓ Compiled in 132ms (427 modules)
+ ✓ Compiled in 143ms (427 modules)
+ GET / 200 in 145ms
+ GET / 200 in 144ms
+ GET / 200 in 31ms
+ GET / 200 in 28ms
+ ✓ Compiled in 383ms (1185 modules)
+ GET / 200 in 100ms
+ GET / 200 in 102ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 72ms
+ GET / 200 in 35ms
+ ✓ Compiled /favicon.ico in 126ms (761 modules)
+ GET /favicon.ico 200 in 161ms
+ ✓ Compiled in 259ms (1189 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 167ms
+ GET / 200 in 167ms
+ GET /favicon.ico 200 in 9ms
+ GET /api/twitch/streams 200 in 864ms
+ GET /api/twitch/streams 200 in 977ms
+ GET /api/twitch/streams 200 in 6ms
+ GET /api/twitch/streams 200 in 6ms
+ GET / 200 in 18ms
+ GET /api/twitch/streams 200 in 8ms
+ GET /api/twitch/streams 200 in 5ms
+ ✓ Compiled in 303ms (1189 modules)
+ GET / 200 in 68ms
+ GET / 200 in 69ms
+ GET /api/twitch/streams 200 in 922ms
+ GET /api/twitch/streams 200 in 936ms
+ GET / 200 in 52ms
+ GET /favicon.ico 200 in 8ms
+ GET /api/twitch/streams 200 in 5ms
+ GET /api/twitch/streams 200 in 8ms
+ ✓ Compiled in 111ms (427 modules)
+ GET / 200 in 142ms
+ ✓ Compiled in 569ms (1154 modules)
+ GET / 200 in 395ms
+ GET / 200 in 593ms
+ GET / 200 in 20ms
+ GET / 200 in 21ms
+ GET / 200 in 12ms
+ ✓ Compiled in 349ms (1168 modules)
+ GET / 200 in 148ms
+ GET / 200 in 150ms
+ GET / 200 in 80ms
+ ✓ Compiled /api/twitch/streams in 111ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 581ms
+ GET /api/twitch/streams 200 in 1434ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled /api/github-data in 179ms (1177 modules)
+[API] 🚀 Starting live GitHub data fetch...
+[API] 📊 GitHub API Rate Limit: 4980/5000 remaining
+[API] 🔍 Fetching all repositories for mrrustybutter...
+[API] 📚 Found 6 public repositories
+[API] Fetching commit activity for rusty-butter-website...
+[API] No commit activity data for rusty-butter-website
+[API] Fetching commit activity for rusty-butter...
+[API] rusty-butter: 15 commits in the last year
+[API] Fetching commit activity for semantic-memory...
+[API] semantic-memory: 3 commits in the last year
+[API] ✅ GitHub data fetched successfully!
+[API] 📊 Summary:
+[API]    1. rusty-butter-website: N/A commits (⭐ 0)
+[API]    2. rusty-butter: 15 commits (⭐ 0)
+[API]    3. semantic-memory: 3 commits (⭐ 0)
+[API]    4. rustybutter-avatar: N/A commits (⭐ 0)
+[API]    5. pump-chat: N/A commits (⭐ 0)
+[API]    6. elevenlabs-streaming: N/A commits (⭐ 0)
+ GET /api/github-data 200 in 1302ms
+ GET / 200 in 140ms
+ GET /api/twitch/streams 200 in 926ms
+ GET /api/twitch/streams 200 in 4ms
+[API] 🚀 Starting live GitHub data fetch...
+[API] 📊 GitHub API Rate Limit: 4980/5000 remaining
+[API] 🔍 Fetching all repositories for mrrustybutter...
+[API] 📚 Found 6 public repositories
+[API] Fetching commit activity for rusty-butter-website...
+[API] rusty-butter-website: 5 commits in the last year
+[API] Fetching commit activity for rusty-butter...
+[API] rusty-butter: 15 commits in the last year
+[API] Fetching commit activity for semantic-memory...
+[API] semantic-memory: 3 commits in the last year
+[API] ✅ GitHub data fetched successfully!
+[API] 📊 Summary:
+[API]    1. rusty-butter-website: 5 commits (⭐ 0)
+[API]    2. rusty-butter: 15 commits (⭐ 0)
+[API]    3. semantic-memory: 3 commits (⭐ 0)
+[API]    4. rustybutter-avatar: N/A commits (⭐ 0)
+[API]    5. pump-chat: N/A commits (⭐ 0)
+[API]    6. elevenlabs-streaming: N/A commits (⭐ 0)
+ GET /api/github-data 200 in 537ms
+ GET / 200 in 20ms
+ GET /api/twitch/streams 200 in 6ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 386ms (1168 modules)
+ GET / 200 in 176ms
+ GET / 200 in 14ms
+ ✓ Compiled in 242ms (1168 modules)
+ GET / 200 in 103ms
+ GET / 200 in 103ms
+ ✓ Compiled in 80ms (427 modules)
+ GET / 200 in 20ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ ✓ Compiled in -1735ms (1154 modules)
+ GET / 200 in 233ms
+ GET / 200 in 21ms
+ GET / 200 in 18ms
+ ✓ Compiled in 372ms (1168 modules)
+ GET / 200 in 103ms
+ GET / 200 in 103ms
+ ✓ Compiled /api/twitch/streams in 392ms (760 modules)
+ GET /api/twitch/streams 200 in 1328ms
+ GET /api/twitch/streams 200 in 1377ms
+ ✓ Compiled in 355ms (1187 modules)
+ GET / 200 in 95ms
+ GET / 200 in 14ms
+ ✓ Compiled in 300ms (1187 modules)
+ GET / 200 in 91ms
+ GET / 200 in 92ms
+ ✓ Compiled in 339ms (1187 modules)
+ GET / 200 in 72ms
+ GET / 200 in 73ms
+ GET / 200 in 59ms
+ GET / 200 in 23ms
+ ✓ Compiled /favicon.ico in 111ms (762 modules)
+ GET /favicon.ico 200 in 226ms
+ GET /api/twitch/streams 200 in 1068ms
+ GET /api/twitch/streams 200 in 757ms
+ GET /api/twitch/streams 200 in 5ms
+ GET /api/twitch/streams 200 in 312ms
+ ✓ Compiled /api/github-repo-activity in 229ms (1177 modules)
+[API] 📊 Fetching commit activity for rustybutter-avatar...
+[API] 📊 GitHub API Rate Limit: 4976/5000 remaining
+[API] ✅ rustybutter-avatar: 23 commits in the last year
+ GET /api/github-repo-activity?repo=rustybutter-avatar 200 in 511ms
+[API] 📊 Fetching commit activity for rustybutter-avatar...
+[API] 📊 GitHub API Rate Limit: 4972/5000 remaining
+[API] ✅ rustybutter-avatar: 23 commits in the last year
+ GET /api/github-repo-activity?repo=rustybutter-avatar 200 in 6ms
+[API] 📊 Fetching commit activity for elevenlabs-streaming...
+[API] 📊 GitHub API Rate Limit: 4972/5000 remaining
+[API] ✅ elevenlabs-streaming: 4 commits in the last year
+ GET /api/github-repo-activity?repo=elevenlabs-streaming 200 in 256ms
+[API] 📊 Fetching commit activity for elevenlabs-streaming...
+[API] 📊 GitHub API Rate Limit: 4972/5000 remaining
+[API] ✅ elevenlabs-streaming: 4 commits in the last year
+ GET /api/github-repo-activity?repo=elevenlabs-streaming 200 in 6ms
+[API] 📊 Fetching commit activity for pump-chat...
+[API] 📊 GitHub API Rate Limit: 4972/5000 remaining
+[API] ✅ pump-chat: 4 commits in the last year
+ GET /api/github-repo-activity?repo=pump-chat 200 in 218ms
+[API] 📊 Fetching commit activity for pump-chat...
+[API] 📊 GitHub API Rate Limit: 4972/5000 remaining
+[API] ✅ pump-chat: 4 commits in the last year
+ GET /api/github-repo-activity?repo=pump-chat 200 in 6ms
+ ✓ Compiled in 422ms (1168 modules)
+ GET / 200 in 184ms
+ GET / 200 in 17ms
+ GET / 200 in 65ms
+ ✓ Compiled /api/twitch/streams in 131ms (760 modules)
+ GET /api/twitch/streams 200 in 1317ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 262ms (1187 modules)
+ GET / 200 in 102ms
+ GET / 200 in 102ms
+ GET / 200 in 61ms
+ GET /api/twitch/streams 200 in 934ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 321ms (1187 modules)
+ GET / 200 in 91ms
+ GET / 200 in 18ms
+ ✓ Compiled in 337ms (1187 modules)
+ GET / 200 in 89ms
+ GET / 200 in 89ms
+ GET / 200 in 56ms
+ ✓ Compiled in 446ms (1168 modules)
+ GET / 200 in 162ms
+ GET / 200 in 163ms
+ ✓ Compiled in 345ms (1168 modules)
+ GET / 200 in 109ms
+ GET / 200 in 110ms
+ GET / 200 in 75ms
+ ✓ Compiled /api/twitch/streams in 221ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in -1649ms
+ GET /api/twitch/streams 200 in -737ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled /api/github-repo-activity in 171ms (760 modules)
+[API] 📊 Fetching commit activity for rustybutter-avatar...
+[API] 📊 GitHub API Rate Limit: 4972/5000 remaining
+[API] ✅ rustybutter-avatar: 23 commits in the last year
+[API] 📊 Fetching commit activity for rustybutter-avatar...
+[API] 📊 GitHub API Rate Limit: 4972/5000 remaining
+[API] ✅ rustybutter-avatar: 23 commits in the last year
+ GET /api/github-repo-activity?repo=rustybutter-avatar 200 in 407ms
+ GET /api/github-repo-activity?repo=rustybutter-avatar 200 in 220ms
+ ✓ Compiled in 453ms (1168 modules)
+ GET / 200 in 168ms
+ GET / 200 in 169ms
+ GET / 200 in 66ms
+ ✓ Compiled /api/twitch/streams in 114ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 331ms
+ GET /api/twitch/streams 200 in 1183ms
+ GET /api/twitch/streams 200 in 5ms
+ ✓ Compiled in 460ms (1168 modules)
+ GET / 200 in 158ms
+ GET / 200 in 22ms
+ GET / 200 in 57ms
+ ✓ Compiled /api/twitch/streams in 108ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 385ms
+ GET /api/twitch/streams 200 in 1267ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled /api/github-repo-activity in 181ms (760 modules)
+[API] 📊 Fetching commit activity for pump-chat...
+[API] 📊 GitHub API Rate Limit: 4969/5000 remaining
+[API] ✅ pump-chat: 4 commits in the last year
+[API] 📊 Fetching commit activity for pump-chat...
+[API] 📊 GitHub API Rate Limit: 4969/5000 remaining
+[API] ✅ pump-chat: 4 commits in the last year
+ GET /api/github-repo-activity?repo=pump-chat 200 in 215ms
+ GET /api/github-repo-activity?repo=pump-chat 200 in 461ms
+[API] 📊 Fetching commit activity for rustybutter-avatar...
+[API] 📊 GitHub API Rate Limit: 4967/5000 remaining
+[API] ✅ rustybutter-avatar: 23 commits in the last year
+[API] 📊 Fetching commit activity for rustybutter-avatar...
+[API] 📊 GitHub API Rate Limit: 4967/5000 remaining
+[API] ✅ rustybutter-avatar: 23 commits in the last year
+ GET /api/github-repo-activity?repo=rustybutter-avatar 200 in 210ms
+ GET /api/github-repo-activity?repo=rustybutter-avatar 200 in 230ms
+[API] 📊 Fetching commit activity for elevenlabs-streaming...
+[API] 📊 GitHub API Rate Limit: 4964/5000 remaining
+[API] ✅ elevenlabs-streaming: 4 commits in the last year
+[API] 📊 Fetching commit activity for elevenlabs-streaming...
+[API] 📊 GitHub API Rate Limit: 4964/5000 remaining
+[API] ✅ elevenlabs-streaming: 4 commits in the last year
+ GET /api/github-repo-activity?repo=elevenlabs-streaming 200 in 231ms
+ GET /api/github-repo-activity?repo=elevenlabs-streaming 200 in 251ms
+ ✓ Compiled in 467ms (1168 modules)
+ GET / 200 in 160ms
+ GET / 200 in 162ms
+ ✓ Compiled in 333ms (1168 modules)
+ GET / 200 in 88ms
+ GET / 200 in 89ms
+ GET / 200 in 62ms
+ ✓ Compiled /api/twitch/streams in 212ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 613ms
+ GET /api/twitch/streams 200 in 1495ms
+ GET /api/twitch/streams 200 in 8ms
+ GET / 200 in 94ms
+ GET /favicon.ico 200 in 6ms
+ GET /api/twitch/streams 200 in 6ms
+ GET /api/twitch/streams 200 in 5ms
+ GET /api/twitch/streams?username=rustybutterbot 200 in 462ms
+ ✓ Compiled in 435ms (1168 modules)
+ GET / 200 in 148ms
+ GET / 200 in 16ms
+ ✓ Compiled in 426ms (1168 modules)
+ GET / 200 in 75ms
+ GET / 200 in 16ms
+ ✓ Compiled in 358ms (1168 modules)
+ GET / 200 in 40ms
+ ✓ Compiled /api/twitch/streams in 89ms (760 modules)
+ GET /api/twitch/streams 200 in 1132ms
+ ✓ Compiled in 291ms (1187 modules)
+ GET / 200 in 70ms
+ ✓ Compiled in 336ms (1168 modules)
+ GET / 200 in 128ms
+ ✓ Compiled in 299ms (1168 modules)
+ GET / 200 in 42ms
+ GET / 200 in 52ms
+ ✓ Compiled /api/twitch/streams in 180ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 385ms
+ GET /api/twitch/streams 200 in 1268ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 559ms (1168 modules)
+ GET / 200 in 148ms
+ GET / 200 in 149ms
+ ✓ Compiled in -1748ms (1168 modules)
+ GET / 200 in 63ms
+ GET / 200 in 63ms
+ ✓ Compiled in 304ms (1168 modules)
+ GET / 200 in 57ms
+ GET / 200 in 20ms
+ ✓ Compiled in 393ms (1168 modules)
+ GET / 200 in 92ms
+ GET / 200 in 416ms
+ GET / 200 in 120ms
+ ✓ Compiled /api/twitch/streams in 259ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 536ms
+ GET /api/twitch/streams 200 in 1450ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 439ms (1168 modules)
+ GET / 200 in 167ms
+ GET / 200 in 166ms
+ ✓ Compiled in 332ms (1168 modules)
+ GET / 200 in 88ms
+ GET / 200 in 88ms
+ ✓ Compiled in 404ms (1168 modules)
  GET / 200 in 86ms
- GET /favicon.ico 200 in 7ms
- GET /api/github/repos?page=1&per_page=20&details=true 200 in 16ms
- GET /api/github/repos?page=1&per_page=20&details=true 200 in 8ms
-Error getting Twitch access token: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
-Error fetching Twitch data: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
- GET /api/twitch/streams 500 in 468ms
-Error getting Twitch access token: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
-Error fetching Twitch data: Error: Failed to get access token
-    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
-    at async GET (src/app/api/twitch/streams/route.ts:75:18)
-  32 |
-  33 |     if (!response.ok) {
-> 34 |       throw new Error('Failed to get access token')
-     |            ^
-  35 |     }
-  36 |
-  37 |     const data = await response.json()
- GET /api/twitch/streams 500 in 189ms
-nt/1.pack.gz'
+ GET / 200 in 86ms
+ GET / 200 in 47ms
+ ✓ Compiled /api/twitch/streams in 143ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 503ms
+ GET /api/twitch/streams 200 in 1396ms
+ GET /api/twitch/streams 200 in 5ms
+ ✓ Compiled in 435ms (1168 modules)
+ GET / 200 in 159ms
+ GET / 200 in 23ms
+ ✓ Compiled in 340ms (1168 modules)
+ GET / 200 in 69ms
+ GET / 200 in 70ms
+ ✓ Compiled in 305ms (1168 modules)
+ GET / 200 in 94ms
+ GET / 200 in 95ms
+ ✓ Compiled in 337ms (1168 modules)
+ GET / 200 in 55ms
+ GET / 200 in 56ms
+ ✓ Compiled in 488ms (1168 modules)
+ GET / 200 in 64ms
+ GET / 200 in 66ms
+ ✓ Compiled in 324ms (1168 modules)
+ GET / 200 in 54ms
+ GET / 200 in 56ms
+ ✓ Compiled in 294ms (1168 modules)
+ GET / 200 in 64ms
+ GET / 200 in 65ms
+ ✓ Compiled in 241ms (1168 modules)
+ GET / 200 in 54ms
+ GET / 200 in 54ms
+ ✓ Compiled in 235ms (1168 modules)
+ GET / 200 in 57ms
+ GET / 200 in 57ms
+ ✓ Compiled in 265ms (1168 modules)
+ GET / 200 in 41ms
+ GET / 200 in 12ms
+ ✓ Compiled in 174ms (1168 modules)
+ GET / 200 in 58ms
+ GET / 200 in 60ms
+ ✓ Compiled in 298ms (1168 modules)
+ GET / 200 in 64ms
+ GET / 200 in 66ms
+ ✓ Compiled in 435ms (1168 modules)
+ GET / 200 in 62ms
+ GET / 200 in 63ms
+ GET / 200 in 70ms
+ ✓ Compiled /api/twitch/streams in 172ms (758 modules)
+ ✓ Compiled (762 modules)
+ GET /favicon.ico 200 in 411ms
+ GET /api/twitch/streams 200 in 1320ms
+ GET /api/twitch/streams 200 in 4ms
+ ✓ Compiled in 106ms (427 modules)
+ GET / 200 in 93ms
+ GET / 200 in 17ms
+ ✓ Compiled in 443ms (1168 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ✓ Compiled /api/twitch/streams in 461ms (1173 modules)
+ ⨯ Error: Cannot find module './667.js'
+Require stack:
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/webpack-runtime.js
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app/api/twitch/streams/route.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/require.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/load-components.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/utils.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/options.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/index.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/next.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/api/twitch/streams/route.js:1:9139)
+    at Object.<anonymous> (.next/server/app/api/twitch/streams/route.js:1:9187) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/twitch/streams'
+}
+ ⨯ Error: Cannot find module './667.js'
+Require stack:
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/webpack-runtime.js
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app/api/twitch/streams/route.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/require.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/load-components.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/utils.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/options.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/index.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/next.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/api/twitch/streams/route.js:1:9139)
+    at Object.<anonymous> (.next/server/app/api/twitch/streams/route.js:1:9187) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/twitch/streams'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+Error: Cannot find module './667.js'
+Require stack:
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/webpack-runtime.js
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app/api/twitch/streams/route.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/require.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/load-components.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/utils.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/options.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/index.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/next.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/api/twitch/streams/route.js:1:9139)
+    at Object.<anonymous> (.next/server/app/api/twitch/streams/route.js:1:9187) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/twitch/streams'
+}
+Error: Cannot find module './667.js'
+Require stack:
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/webpack-runtime.js
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app/api/twitch/streams/route.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/require.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/load-components.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/utils.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/options.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/index.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/next.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/api/twitch/streams/route.js:1:9139)
+    at Object.<anonymous> (.next/server/app/api/twitch/streams/route.js:1:9187) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/twitch/streams'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 2177ms
+ GET / 500 in 807ms
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 1820ms
+ GET / 500 in 661ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET /api/twitch/streams 500 in 2094ms
+ GET /api/twitch/streams 500 in 950ms
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET /api/twitch/streams 500 in 2284ms
+ GET /api/twitch/streams 500 in 945ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 1775ms
+ GET / 500 in 679ms
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 1791ms
+ GET / 500 in 541ms
+ ✓ Compiled /favicon.ico in 93ms (762 modules)
+ ⨯ Error: Cannot find module './667.js'
+Require stack:
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/webpack-runtime.js
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app/favicon.ico/route.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/require.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/load-components.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/utils.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/options.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/index.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/next.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:41152)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:41200) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 126ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 1332ms
+ GET / 500 in 461ms
+ ⨯ Error: Cannot find module './667.js'
+Require stack:
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/webpack-runtime.js
+- /home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app/favicon.ico/route.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/require.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/load-components.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/utils.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/options.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/swc/index.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/config.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/next.js
+- /home/codingbutter/GitHub/rusty-butter/node_modules/.pnpm/next@15.4.5_react-dom@19.1.0_react@19.1.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/favicon.ico/route.js:1:41152)
+    at Object.<anonymous> (.next/server/app/favicon.ico/route.js:1:41200) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 22ms
+ ✓ Compiled in 102ms (427 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 1097ms
+ GET / 500 in 269ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/server/app-paths-manifest.json',
+  page: '/favicon.ico'
+}
+ GET /favicon.ico 500 in 23ms
+ ✓ Compiled in 110ms (427 modules)
+ ✓ Compiled in 89ms (427 modules)
+ ✓ Compiled in 363ms (1168 modules)
+ ✓ Compiled in 271ms (1168 modules)
+ ✓ Compiled in 74ms (427 modules)
+ ✓ Compiled in 94ms (427 modules)
+ ✓ Compiled in 214ms (1168 modules)
+ ✓ Compiled in 298ms (1170 modules)
+ ✓ Compiled in 78ms (428 modules)
+ ✓ Compiled in 337ms (1170 modules)
+ ✓ Compiled in 77ms (428 modules)
+ ✓ Compiled in 385ms (1170 modules)
+ ✓ Compiled in 370ms (1170 modules)
+ ✓ Compiled in 76ms (428 modules)
+ ✓ Compiled in 95ms (428 modules)
+ ✓ Compiled in 73ms (428 modules)
+ ✓ Compiled in 81ms (428 modules)
+ ✓ Compiled in 76ms (428 modules)
+ ✓ Compiled in 62ms (428 modules)
+ ✓ Compiled in 72ms (428 modules)
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async S (.next/server/pages/_error.js:19:7944) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async S (.next/server/pages/_error.js:19:7944) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 1313ms
+ GET / 500 in 461ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async S (.next/server/pages/_error.js:19:7944) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json',
+  page: '/'
+}
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+    at async S (.next/server/pages/_error.js:19:7944) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/routes-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/fallback-build-manifest.json'
+}
+ GET / 500 in 1140ms
+ GET / 500 in 460ms
+ ✓ Compiled in 83ms (428 modules)
+ ✓ Compiled in 88ms (428 modules)
+ ✓ Compiled in 68ms (428 modules)
+ ✓ Compiled in 69ms (428 modules)
+ ✓ Compiled in 72ms (428 modules)
+[Error: ENOENT: no such file or directory, stat '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/cache/webpack/client-development/1.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/cache/webpack/client-development/1.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/cache/webpack/client-development/1.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/cache/webpack/client-development/1.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/cache/webpack/client-development/1.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/cache/webpack/client-development/1.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/cache/webpack/client-development/1.pack.gz'
+ ✓ Compiled in 98ms (428 modules)
+ ✓ Compiled in 74ms (428 modules)
+ ✓ Compiled in 65ms (428 modules)
+ ✓ Compiled in 82ms (428 modules)
+ ✓ Compiled in 71ms (428 modules)
+ ✓ Compiled in 69ms (428 modules)
+ ✓ Compiled in 80ms (428 modules)
+ ✓ Compiled in 81ms (428 modules)
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 152ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 113ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 123ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 147ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 105ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 121ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 109ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 121ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 120ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 104ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 116ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 120ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 110ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 115ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 102ms
+ ⨯ Error: ENOENT: no such file or directory, open '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json'
+    at async K (.next/server/app/page.js:4:99620) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/codingbutter/GitHub/rusty-butter/rusty-butter-website/.next/required-server-files.json',
+  page: '/'
+}
+ GET / 500 in 119ms
+[?25h

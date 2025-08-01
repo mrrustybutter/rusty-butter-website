@@ -7,9 +7,11 @@
     "dev:detached": "nohup next dev > dev.log 2>&1 & echo 'Dev server started in background. Check dev.log for output.'",
     "dev:stop": "pkill -f 'next dev' && echo 'Dev server stopped'",
     "dev:logs": "tail -f dev.log",
+    "prebuild": "node scripts/fetch-live-github-data.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-github-data": "node scripts/fetch-live-github-data.js"
   },
   "dependencies": {
     "lucide-react": "^0.535.0",

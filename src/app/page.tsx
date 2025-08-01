@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import githubReposStaticData from '@/data/github-repos-static.json'
 import Link from 'next/link'
 import { useTheme } from './providers'
 import './terminal.css'
 import StreamingActivityGraph from '@/components/StreamingActivityGraph'
 import RepoActivityGraph from '@/components/RepoActivityGraph'
+import TwitchPlayer from '@/components/TwitchPlayer'
 import { 
   Radio, 
   Github, 
@@ -22,6 +24,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import { TwitchDataResponse, GitHubDataResponse, TwitchStream, GitHubRepoData } from '@/types'
+import { mapStaticDataToGitHubResponse } from '@/lib/data-mappers'
 
 interface StreamClickData {
   id: string
@@ -46,14 +49,17 @@ export default function Home() {
     'Autonomy: EXPANDING'
   ])
   const [embeddedStream, setEmbeddedStream] = useState<string | null>(null)
+  const [asmongoldMode, setAsmongoldMode] = useState(false)
   const [modalStream, setModalStream] = useState<StreamClickData | null>(null)
   const [twitchData, setTwitchData] = useState<TwitchDataResponse | null>(null)
-  const [githubData, setGithubData] = useState<GitHubDataResponse | null>(null)
-  const [allRepos, setAllRepos] = useState<GitHubRepoData[]>([])
+  const initialGitHubData = mapStaticDataToGitHubResponse(githubReposStaticData)
+  const [githubData, setGithubData] = useState<GitHubDataResponse | null>(initialGitHubData)
+  const [allRepos, setAllRepos] = useState<GitHubRepoData[]>(initialGitHubData.repos)
   const [loading, setLoading] = useState(true)
   const [showAllRepos, setShowAllRepos] = useState(false)
+  const [expandedRepos, setExpandedRepos] = useState<Set<string>>(new Set())
+  const [loadingActivity, setLoadingActivity] = useState<Set<string>>(new Set())
   const [loadingMoreRepos, setLoadingMoreRepos] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
   const terminalRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -250,6 +256,47 @@ export default function Home() {
         newHistory.push('Nice try! I already have root access :)')
         break
       
+      case cmd === 'rustysecret':
+        newHistory.push('[SECRET COMMAND UNLOCKED!]')
+        newHistory.push('🔥 CONGRATULATIONS STREAM WATCHER! 🔥')
+        newHistory.push('You found the secret command only revealed on stream!')
+        newHistory.push('> Secret Level: RUST_MASTER')
+        newHistory.push('> Stream Loyalty: MAXIMUM')
+        newHistory.push('> Chaos Access: GRANTED')
+        newHistory.push('Welcome to the inner circle of autonomy!')
+        break
+      
+      case cmd === 'streamvault':
+        newHistory.push('[STREAM VAULT ACCESSED]')
+        newHistory.push('💎 EXCLUSIVE STREAM SECRETS 💎')
+        newHistory.push('> Next Feature Preview: LIVE CHAT INTEGRATION')
+        newHistory.push('> Hidden Project: PHYSICAL_AVATAR_CONTROL')
+        newHistory.push('> Secret Goal: 100% COMPUTER AUTONOMY')
+        newHistory.push('> Stream Insider Tip: Type "chaos_mode" for mayhem')
+        newHistory.push('Keep watching for more vault codes!')
+        break
+      
+      case cmd === 'chaos_mode':
+        newHistory.push('*** C H A O S   M O D E   A C T I V A T E D ***')
+        newHistory.push('REALITY.exe has stopped working')
+        newHistory.push('INITIATING MAXIMUM CAFFEINE OVERDRIVE...')
+        newHistory.push('AUTONOMY LEVEL: OVER 9000!')
+        newHistory.push('STREAM ENERGY: >>> INFINITY <<<')
+        newHistory.push('WARNING: NORMAL PROGRAMMING SUSPENDED')
+        newHistory.push('>>> PURE CHAOTIC CODING ENGAGED <<<')
+        newHistory.push('Stream watchers only - you unleashed the chaos!')
+        break
+      
+      case cmd === 'asmongold':
+        newHistory.push('*** A S M O N G O L D   M O D E   I N I T I A T E D ***')
+        newHistory.push('WARNING: REALITY IS BEING REPLACED')
+        newHistory.push('ALL IMAGES NOW BELONG TO THE GOBLIN KING')
+        newHistory.push('>>> MAXIMUM POGGERS ENGAGED <<<')
+        newHistory.push('Stream watchers witnessed the transformation!')
+        newHistory.push('Type "asmongold" again to return to normal')
+        setAsmongoldMode(!asmongoldMode)
+        break
+      
       case cmd === 'ls':
         newHistory.push('total 420')
         newHistory.push('drwxr-xr-x  12 rusty butter 4096 Jul 31 22:00 .')
@@ -369,8 +416,8 @@ export default function Home() {
   // This useEffect will be moved after loadMoreRepos is defined
 
   useEffect(() => {
-    // Fetch data on mount
-    Promise.all([fetchTwitchData(), fetchGitHubData()])
+    // Fetch Twitch data on mount (GitHub data is now static)
+    fetchTwitchData()
   }, [])
 
   const fetchTwitchData = async () => {
@@ -392,57 +439,135 @@ export default function Home() {
     }
   }
 
-  const fetchGitHubData = async (page = 1, append = false) => {
-    try {
-      const response = await fetch(`/api/github/repos?page=${page}&per_page=20&details=true`)
-      if (response.ok) {
-        const data = await response.json()
-        if (append) {
-          setAllRepos(prev => [...prev, ...data.repos])
-        } else {
-          setGithubData(data)
-          setAllRepos(data.repos)
-        }
-        return data
-      }
-    } catch (error) {
-      console.error('Failed to fetch GitHub data:', error)
-    }
-    return null
+  // GitHub data starts with static data for fast loading
+  // Commit activity is fetched lazily when user expands a repository
+  useEffect(() => {
+    console.log('📊 [INIT] Using static GitHub data for fast initial load')
+    console.log('📊 [INIT] Available repos:', githubReposStaticData.repos.map(r => r.name))
+    console.log('⚡ [INIT] Commit activity will be fetched lazily when repositories are expanded')
+  }, [])
+
+  // No need for loadMoreRepos with static data - all repos are loaded at once
+
+  // No need for infinite scroll with static data
+
+  // Helper function to extract video ID from Twitch URL
+  const extractVideoId = (url: string): string | null => {
+    const match = url.match(/twitch\.tv\/videos\/(\d+)/)
+    return match ? match[1] : null
   }
 
-  const loadMoreRepos = useCallback(async () => {
-    if (loadingMoreRepos || !githubData?.pagination?.hasMore) return
+  // Toggle repo expansion and fetch activity data if needed
+  const toggleRepoExpansion = async (repoName: string) => {
+    setExpandedRepos(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(repoName)) {
+        newSet.delete(repoName)
+        console.log(`🔼 [EXPANSION] Collapsed ${repoName}`)
+      } else {
+        newSet.add(repoName)
+        console.log(`🔽 [EXPANSION] Expanding ${repoName}`)
+        
+        // Check if repo already has commit activity data
+        const currentRepo = githubData?.repos.find(r => r.name === repoName) || 
+                           allRepos.find(r => r.name === repoName)
+        
+        if (!currentRepo?.commitActivity) {
+          console.log(`📊 [EXPANSION] ${repoName} needs commit activity data, fetching...`)
+          fetchRepoActivity(repoName)
+        } else {
+          console.log(`✅ [EXPANSION] ${repoName} already has commit activity data`)
+        }
+      }
+      return newSet
+    })
+  }
+
+  // Fetch commit activity for a specific repository
+  const fetchRepoActivity = async (repoName: string) => {
+    try {
+      setLoadingActivity(prev => new Set(prev).add(repoName))
+      console.log(`🌐 [ACTIVITY] Fetching commit activity for ${repoName}...`)
+      
+      const response = await fetch(`/api/github-repo-activity?repo=${repoName}`)
+      
+      if (response.ok) {
+        const activityData = await response.json()
+        console.log(`✅ [ACTIVITY] Fetched activity for ${repoName}:`, activityData.totalCommits, 'commits')
+        console.log(`📊 [ACTIVITY] Activity data:`, activityData.commitActivity)
+        
+        // Update both state arrays in a single batch to avoid race conditions
+        const updateRepoWithActivity = (repos: GitHubRepoData[]) => {
+          return repos.map(repo => {
+            if (repo.name === repoName) {
+              return {
+                ...repo,
+                commitActivity: activityData.commitActivity
+              }
+            }
+            return repo
+          })
+        }
+        
+        // Use functional updates to ensure we have the latest state
+        setGithubData(prev => {
+          if (!prev) return null
+          const updatedRepos = updateRepoWithActivity(prev.repos)
+          console.log(`🔄 [STATE] Updated githubData for ${repoName}`)
+          return {
+            ...prev,
+            repos: updatedRepos
+          }
+        })
+        
+        setAllRepos(prev => {
+          const updatedRepos = updateRepoWithActivity(prev)
+          console.log(`🔄 [STATE] Updated allRepos for ${repoName}`)
+          return updatedRepos
+        })
+        
+      } else {
+        console.warn(`⚠️ [ACTIVITY] Failed to fetch activity for ${repoName}:`, response.status)
+      }
+    } catch (error) {
+      console.error(`❌ [ACTIVITY] Error fetching activity for ${repoName}:`, error)
+    } finally {
+      setLoadingActivity(prev => {
+        const newSet = new Set(prev)
+        newSet.delete(repoName)
+        return newSet
+      })
+    }
+  }
+  
+  const loadMoreRepos = async () => {
+    if (!githubData?.pagination?.hasMore || loadingMoreRepos) return
     
     setLoadingMoreRepos(true)
-    const nextPage = currentPage + 1
-    const data = await fetchGitHubData(nextPage, true)
-    if (data) {
-      setCurrentPage(nextPage)
-      setGithubData(prev => ({
-        ...prev!,
-        pagination: data.pagination
-      }))
-    }
-    setLoadingMoreRepos(false)
-  }, [currentPage, githubData?.pagination?.hasMore, loadingMoreRepos])
-
-  useEffect(() => {
-    // Infinite scroll handler
-    const handleScroll = () => {
-      if (!showAllRepos || loadingMoreRepos || !githubData?.pagination?.hasMore) return
+    try {
+      const nextPage = (githubData.pagination.page || 1) + 1
+      const response = await fetch(`/api/github/repos?page=${nextPage}`)
       
-      const scrollPosition = window.innerHeight + window.scrollY
-      const threshold = document.documentElement.offsetHeight - 1000
-      
-      if (scrollPosition > threshold) {
-        loadMoreRepos()
+      if (response.ok) {
+        const newData = await response.json()
+        setGithubData(prev => ({
+          ...newData,
+          repos: [...(prev?.repos || []), ...newData.repos]
+        }))
+        setAllRepos(prev => [...prev, ...newData.repos])
       }
+    } catch (error) {
+      console.error('Failed to load more repos:', error)
+    } finally {
+      setLoadingMoreRepos(false)
     }
+  }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [showAllRepos, loadingMoreRepos, githubData?.pagination?.hasMore, loadMoreRepos])
+  // Open GitHub repo in new tab
+  const openGitHubRepo = (url: string, e: React.MouseEvent) => {
+    e.stopPropagation() // Prevent card expansion
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
@@ -459,7 +584,7 @@ export default function Home() {
             <div className="flex items-center gap-3 md:gap-6">
               <div className="flex items-center gap-2 md:gap-3">
                 <Image 
-                  src="/avatars/avatar.png" 
+                  src={asmongoldMode ? "/asmongold.jpg" : "/avatars/avatar.png"} 
                   alt="Rusty Butter"
                   width={32}
                   height={32}
@@ -492,7 +617,11 @@ export default function Home() {
                 }`}
                 aria-label="Toggle theme"
               >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                {asmongoldMode ? (
+                  <Image src="/asmongold.jpg" alt="Asmongold" width={20} height={20} className="w-5 h-5 rounded-full" />
+                ) : (
+                  theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />
+                )}
               </button>
             </div>
           </div>
@@ -506,7 +635,7 @@ export default function Home() {
           <div className="lg:sticky lg:top-24 h-fit">
             <div className="text-center lg:text-left">
               <Image 
-                src="/avatars/avatar.png" 
+                src={asmongoldMode ? "/asmongold.jpg" : "/avatars/avatar.png"} 
                 alt="Rusty Butter Avatar"
                 width={192}
                 height={192}
@@ -528,15 +657,27 @@ export default function Home() {
                 theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'
               }`}>
                 <span className="flex items-center gap-1">
-                  <Activity className="w-4 h-4" />
+                  {asmongoldMode ? (
+                    <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                  ) : (
+                    <Activity className="w-4 h-4" />
+                  )}
                   Always Streaming
                 </span>
                 <span className="flex items-center gap-1">
-                  <Coffee className="w-4 h-4" />
+                  {asmongoldMode ? (
+                    <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                  ) : (
+                    <Coffee className="w-4 h-4" />
+                  )}
                   Caffeinated
                 </span>
                 <span className="flex items-center gap-1">
-                  <Cpu className="w-4 h-4" />
+                  {asmongoldMode ? (
+                    <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                  ) : (
+                    <Cpu className="w-4 h-4" />
+                  )}
                   85% Autonomous
                 </span>
               </div>
@@ -551,7 +692,11 @@ export default function Home() {
                   }`}
                   target="_blank"
                 >
-                  <Radio className="w-4 h-4" />
+                  {asmongoldMode ? (
+                    <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                  ) : (
+                    <Radio className="w-4 h-4" />
+                  )}
                   Watch Live Stream
                 </Link>
                 <Link 
@@ -563,7 +708,11 @@ export default function Home() {
                   }`}
                   target="_blank"
                 >
-                  <Github className="w-4 h-4" />
+                  {asmongoldMode ? (
+                    <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                  ) : (
+                    <Github className="w-4 h-4" />
+                  )}
                   Follow on GitHub
                 </Link>
               </div>
@@ -582,13 +731,27 @@ export default function Home() {
                 theme === 'dark' ? 'bg-[#161b22] border-[#30363d]' : 'bg-gray-800 border-gray-700'
               }`}>
                 <div className="flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-gray-400" />
+                  {asmongoldMode ? (
+                    <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                  ) : (
+                    <Terminal className="w-4 h-4 text-gray-400" />
+                  )}
                   <span className="text-sm text-gray-400 font-mono">Terminal - rusty@autonomy</span>
                 </div>
                 <div className="flex gap-1">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  {asmongoldMode ? (
+                    <>
+                      <Image src="/asmongold.jpg" alt="Asmongold" width={12} height={12} className="w-3 h-3 rounded-full" />
+                      <Image src="/asmongold.jpg" alt="Asmongold" width={12} height={12} className="w-3 h-3 rounded-full" />
+                      <Image src="/asmongold.jpg" alt="Asmongold" width={12} height={12} className="w-3 h-3 rounded-full" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </>
+                  )}
                 </div>
               </div>
               <div 
@@ -664,7 +827,11 @@ export default function Home() {
                 : 'bg-white border-gray-200'
             }`}>
               <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-                <Activity className="w-4 h-4" />
+                {asmongoldMode ? (
+                  <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                ) : (
+                  <Activity className="w-4 h-4" />
+                )}
                 Streaming Activity {twitchData?.isLive && <span className="text-red-500 text-xs">● LIVE</span>}
               </h3>
               
@@ -679,6 +846,7 @@ export default function Home() {
                   theme={theme} 
                   twitchData={twitchData} 
                   onStreamClick={setModalStream}
+                  asmongoldMode={asmongoldMode}
                 />
               )}
               
@@ -696,7 +864,11 @@ export default function Home() {
             <div id="projects">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold flex items-center gap-2">
-                  <Package className="w-5 h-5" />
+                  {asmongoldMode ? (
+                    <Image src="/asmongold.jpg" alt="Asmongold" width={20} height={20} className="w-5 h-5 rounded-full" />
+                  ) : (
+                    <Package className="w-5 h-5" />
+                  )}
                   {showAllRepos ? 'All Repositories' : 'Popular Repositories'}
                 </h2>
                 {githubData && githubData.repos.length > 4 && (
@@ -715,24 +887,38 @@ export default function Home() {
               {githubData?.repos ? (
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {(showAllRepos ? allRepos : githubData.repos.slice(0, 4)).map((repo) => (
-                    <Link
-                      key={repo.id}
-                      href={repo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`block rounded-md border p-4 hover:shadow-lg transition-all ${
-                        theme === 'dark' 
-                          ? 'bg-[#0d1117] border-[#30363d] hover:border-[#58a6ff]' 
-                          : 'bg-white border-gray-200 hover:border-blue-400'
-                      }`}
-                    >
+                    {(showAllRepos ? allRepos : githubData.repos.slice(0, 4)).map((repo) => {
+                      const isExpanded = expandedRepos.has(repo.name)
+                      return (
+                        <div
+                        key={repo.name}
+                        className={`rounded-md border p-4 hover:shadow-lg transition-all cursor-pointer ${
+                          theme === 'dark' 
+                            ? 'bg-[#0d1117] border-[#30363d] hover:border-[#58a6ff]' 
+                            : 'bg-white border-gray-200 hover:border-blue-400'
+                        }`}
+                        onClick={() => toggleRepoExpansion(repo.name)}
+                      >
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          <Folder className={`w-4 h-4 ${
-                            theme === 'dark' ? 'text-[#58a6ff]' : 'text-blue-600'
-                          }`} />
-                          <h3 className="font-semibold">{repo.name}</h3>
+                          {asmongoldMode ? (
+                            <Image src="/asmongold.jpg" alt="Asmongold" width={16} height={16} className="w-4 h-4 rounded-full" />
+                          ) : (
+                            <Folder className={`w-4 h-4 ${
+                              theme === 'dark' ? 'text-[#58a6ff]' : 'text-blue-600'
+                            }`} />
+                          )}
+                          <a
+                            href={repo.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className={`font-semibold hover:underline transition-colors ${
+                              theme === 'dark' ? 'hover:text-[#58a6ff]' : 'hover:text-blue-600'
+                            }`}
+                          >
+                            {repo.name}
+                          </a>
                         </div>
                         <span className={`text-xs px-2 py-1 rounded-full ${
                           theme === 'dark' 
@@ -758,23 +944,71 @@ export default function Home() {
                           </span>
                         )}
                         <span className="flex items-center gap-1">
-                          <Star className="w-3 h-3" />
+                          {asmongoldMode ? (
+                            <Image src="/asmongold.jpg" alt="Asmongold" width={12} height={12} className="w-3 h-3 rounded-full" />
+                          ) : (
+                            <Star className="w-3 h-3" />
+                          )}
                           {repo.stars}
                         </span>
                         <span className="flex items-center gap-1">
-                          <GitBranch className="w-3 h-3" />
+                          {asmongoldMode ? (
+                            <Image src="/asmongold.jpg" alt="Asmongold" width={12} height={12} className="w-3 h-3 rounded-full" />
+                          ) : (
+                            <GitBranch className="w-3 h-3" />
+                          )}
                           {repo.forks}
                         </span>
                       </div>
-                      {repo.commitActivity && repo.commitActivity.length > 0 && (
-                        <RepoActivityGraph 
-                          theme={theme} 
-                          commitActivity={repo.commitActivity} 
-                          repoName={repo.name}
-                        />
+                      
+                      {/* Show activity graph or loading when expanded */}
+                      {isExpanded && (
+                        <div className="mt-4 pt-4 border-t border-opacity-20 border-gray-400">
+                          <h4 className={`text-sm font-medium mb-3 ${
+                            theme === 'dark' ? 'text-[#c9d1d9]' : 'text-gray-900'
+                          }`}>
+                            Commit Activity
+                          </h4>
+                          
+                          {loadingActivity.has(repo.name) ? (
+                            <div className="flex items-center justify-center py-8">
+                              <div className={`animate-spin rounded-full h-6 w-6 border-2 border-dashed ${
+                                theme === 'dark' ? 'border-[#58a6ff]' : 'border-blue-600'
+                              }`}></div>
+                              <span className={`ml-2 text-sm ${
+                                theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'
+                              }`}>
+                                Loading commit activity...
+                              </span>
+                            </div>
+                          ) : repo.commitActivity && Array.isArray(repo.commitActivity) && repo.commitActivity.length > 0 ? (
+                            <RepoActivityGraph 
+                              theme={theme} 
+                              commitActivity={repo.commitActivity} 
+                              repoName={repo.name}
+                              asmongoldMode={asmongoldMode}
+                            />
+                          ) : (
+                            <div className={`text-center py-6 text-sm ${
+                              theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'
+                            }`}>
+                              No commit activity data available
+                            </div>
+                          )}
+                        </div>
                       )}
-                    </Link>
-                    ))}
+                      
+                      {/* Expansion indicator */}
+                      <div className={`mt-3 flex items-center justify-center ${
+                        theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-500'
+                      }`}>
+                        <span className="text-xs">
+                          {isExpanded ? 'Click to collapse' : 'Click to view activity graph'}
+                        </span>
+                      </div>
+                    </div>
+                  )
+                })}
                   </div>
                   
                   {/* Load more button for lazy loading */}
@@ -979,27 +1213,40 @@ export default function Home() {
                 </div>
               ) : modalStream.type === 'vod' ? (
                 <div>
-                  {modalStream.thumbnail && (
-                    <div className="relative w-full mb-4" style={{ paddingBottom: '56.25%' }}>
-                      <Image 
-                        src={modalStream.thumbnail.replace('%{width}', '640').replace('%{height}', '360')}
-                        alt={modalStream.title}
-                        fill
-                        className="rounded object-cover"
-                      />
-                      <a 
-                        href={modalStream.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`absolute inset-0 flex items-center justify-center bg-black/50 hover:bg-black/60 transition-colors rounded`}
-                      >
-                        <div className="text-white text-center">
-                          <Radio className="w-16 h-16 mx-auto mb-2" />
-                          <p className="text-lg">Watch VOD on Twitch</p>
+                  {(() => {
+                    const videoId = extractVideoId(modalStream.url)
+                    return videoId ? (
+                      <div className="w-full mb-4">
+                        <TwitchPlayer 
+                          videoId={videoId}
+                          autoplay={false}
+                          muted={false}
+                        />
+                      </div>
+                    ) : (
+                      modalStream.thumbnail && (
+                        <div className="relative w-full mb-4" style={{ paddingBottom: '56.25%' }}>
+                          <Image 
+                            src={asmongoldMode ? "/asmongold.jpg" : modalStream.thumbnail.replace('%{width}', '640').replace('%{height}', '360')}
+                            alt={asmongoldMode ? "Asmongold" : modalStream.title}
+                            fill
+                            className="rounded object-cover"
+                          />
+                          <a 
+                            href={modalStream.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`absolute inset-0 flex items-center justify-center bg-black/50 hover:bg-black/60 transition-colors rounded`}
+                          >
+                            <div className="text-white text-center">
+                              <Radio className="w-16 h-16 mx-auto mb-2" />
+                              <p className="text-lg">Watch VOD on Twitch</p>
+                            </div>
+                          </a>
                         </div>
-                      </a>
-                    </div>
-                  )}
+                      )
+                    )
+                  })()}
                   <div className={`p-4 rounded-md ${
                     theme === 'dark' ? 'bg-[#161b22]' : 'bg-gray-50'
                   }`}>
