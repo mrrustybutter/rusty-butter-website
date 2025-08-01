@@ -61,9 +61,10 @@ async function getUserId(username: string, token: string) {
 }
 
 export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const username = searchParams.get('username') || 'rustybutterbot'
+  
   try {
-    const { searchParams } = new URL(request.url)
-    const username = searchParams.get('username') || 'rustybutterbot'
     
     // Check cache for this user
     const cachedData = streamDataCacheByUser.get(username)
