@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import githubReposStaticData from '@/data/github-repos-static.json'
 import Link from 'next/link'
 import { useTheme } from './providers'
@@ -563,11 +563,6 @@ export default function Home() {
     }
   }
 
-  // Open GitHub repo in new tab
-  const openGitHubRepo = (url: string, e: React.MouseEvent) => {
-    e.stopPropagation() // Prevent card expansion
-    window.open(url, '_blank', 'noopener,noreferrer')
-  }
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${

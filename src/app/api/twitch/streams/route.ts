@@ -29,8 +29,8 @@ async function getTwitchAccessToken(): Promise<string> {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: new URLSearchParams({
-        client_id: TWITCH_CLIENT_ID,
-        client_secret: TWITCH_CLIENT_SECRET,
+        client_id: TWITCH_CLIENT_ID!,
+        client_secret: TWITCH_CLIENT_SECRET!,
         grant_type: 'client_credentials',
       }),
     })

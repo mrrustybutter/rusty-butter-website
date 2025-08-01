@@ -1,4 +1,4 @@
-import { GitHubRepoData, GitHubDataResponse } from '@/types'
+import { GitHubDataResponse } from '@/types'
 
 const GITHUB_USERNAME = 'mrrustybutter'
 
