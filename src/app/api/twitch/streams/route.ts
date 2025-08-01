@@ -53,7 +53,7 @@ async function getUserId(username: string, token: string) {
   const response = await fetch(`https://api.twitch.tv/helix/users?login=${username}`, {
     headers: {
       'Authorization': `Bearer ${token}`,
-      'Client-Id': TWITCH_CLIENT_ID,
+      'Client-Id': TWITCH_CLIENT_ID!,
     },
   })
 
@@ -97,7 +97,7 @@ export async function GET(request: Request) {
       {
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Client-Id': TWITCH_CLIENT_ID,
+          'Client-Id': TWITCH_CLIENT_ID!,
         },
       }
     )
@@ -114,7 +114,7 @@ export async function GET(request: Request) {
       {
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Client-Id': TWITCH_CLIENT_ID,
+          'Client-Id': TWITCH_CLIENT_ID!,
         },
       }
     )
@@ -132,7 +132,7 @@ export async function GET(request: Request) {
       {
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Client-Id': TWITCH_CLIENT_ID,
+          'Client-Id': TWITCH_CLIENT_ID!,
         },
       }
     )
