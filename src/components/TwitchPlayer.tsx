@@ -51,8 +51,8 @@ export default function TwitchPlayer({
       }
 
       const options: any = {
-        width,
-        height,
+        width: '100%',
+        height: '100%',
         autoplay,
         muted,
         parent: [window.location.hostname, 'localhost']
