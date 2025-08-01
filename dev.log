@@ -1,0 +1,111 @@
+
+> rusty-butter-website@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use by an unknown process, using available port 3003 instead.
+   ▲ Next.js 15.4.5
+   - Local:        http://localhost:3003
+   - Network:      http://10.255.255.254:3003
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1486ms
+ ○ Compiling / ...
+ ✓ Compiled / in -732ms (755 modules)
+ GET / 200 in -446ms
+ ✓ Compiled /api/github/repos in 163ms (482 modules)
+ ✓ Compiled in 109ms (278 modules)
+ GET /favicon.ico 200 in 473ms
+ GET / 200 in 179ms
+Error getting Twitch access token: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+Error fetching Twitch data: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+ GET /api/twitch/streams 500 in 851ms
+Error getting Twitch access token: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+Error fetching Twitch data: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+ GET /api/twitch/streams 500 in 192ms
+ GET /api/github/repos?page=1&per_page=20&details=true 200 in 1349ms
+ GET /api/github/repos?page=1&per_page=20&details=true 200 in 4ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: invalid bit length repeat
+ GET / 200 in 86ms
+ GET /favicon.ico 200 in 7ms
+ GET /api/github/repos?page=1&per_page=20&details=true 200 in 16ms
+ GET /api/github/repos?page=1&per_page=20&details=true 200 in 8ms
+Error getting Twitch access token: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+Error fetching Twitch data: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+ GET /api/twitch/streams 500 in 468ms
+Error getting Twitch access token: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+Error fetching Twitch data: Error: Failed to get access token
+    at getTwitchAccessToken (src/app/api/twitch/streams/route.ts:34:12)
+    at async GET (src/app/api/twitch/streams/route.ts:75:18)
+  32 |
+  33 |     if (!response.ok) {
+> 34 |       throw new Error('Failed to get access token')
+     |            ^
+  35 |     }
+  36 |
+  37 |     const data = await response.json()
+ GET /api/twitch/streams 500 in 189ms
+nt/1.pack.gz'

@@ -17,7 +17,7 @@ interface Props {
 
 export default function RepoActivityGraph({ theme, commitActivity }: Props) {
   const activityData = useMemo(() => {
-    const data = []
+    const data: Array<{date: Date, intensity: number, data: {commits: number}}> = []
     
     commitActivity.forEach(week => {
       const weekStart = new Date(week.week * 1000)
@@ -41,11 +41,14 @@ export default function RepoActivityGraph({ theme, commitActivity }: Props) {
 
   const totalCommits = commitActivity.reduce((total, week) => total + week.total, 0)
 
-  const tooltipContent = (data: { commits: number }, date: Date) => (
-    <div>
-      {data.commits} commits on {date.toLocaleDateString()}
-    </div>
-  )
+  const tooltipContent = (data: unknown, date: Date) => {
+    const commitData = data as {commits: number}
+    return (
+      <div>
+        {commitData.commits} commits on {date.toLocaleDateString()}
+      </div>
+    )
+  }
 
   return (
     <ActivityGraph

@@ -32,7 +32,8 @@ export default function StreamingActivityGraph({ theme, twitchData, onStreamClic
     }))
   }, [twitchData])
 
-  const handleDotClick = (stream: TwitchStream) => {
+  const handleDotClick = (data: unknown) => {
+    const stream = data as TwitchStream
     onStreamClick({
       ...stream,
       date: stream.date.toLocaleDateString(),
@@ -41,17 +42,20 @@ export default function StreamingActivityGraph({ theme, twitchData, onStreamClic
     })
   }
 
-  const tooltipContent = (stream: TwitchStream, date: Date) => (
-    <>
-      <div className="font-semibold">{stream.title}</div>
-      <div className={theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'}>
-        {date.toLocaleDateString()} • {Math.round(stream.duration)}h • {stream.viewCount} views
-      </div>
-      {stream.type === 'live' && (
-        <div className="text-red-500 text-xs mt-1">● LIVE NOW</div>
-      )}
-    </>
-  )
+  const tooltipContent = (data: unknown, date: Date) => {
+    const stream = data as TwitchStream
+    return (
+      <>
+        <div className="font-semibold">{stream.title}</div>
+        <div className={theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'}>
+          {date.toLocaleDateString()} • {Math.round(stream.duration)}h • {stream.viewCount} views
+        </div>
+        {stream.type === 'live' && (
+          <div className="text-red-500 text-xs mt-1">● LIVE NOW</div>
+        )}
+      </>
+    )
+  }
 
   return (
     <ActivityGraph

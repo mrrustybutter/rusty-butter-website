@@ -366,22 +366,7 @@ export default function Home() {
     }
   }, [terminalHistory])
 
-  useEffect(() => {
-    // Infinite scroll handler
-    const handleScroll = () => {
-      if (!showAllRepos || loadingMoreRepos || !githubData?.pagination?.hasMore) return
-      
-      const scrollPosition = window.innerHeight + window.scrollY
-      const threshold = document.documentElement.offsetHeight - 1000
-      
-      if (scrollPosition > threshold) {
-        loadMoreRepos()
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [showAllRepos, loadingMoreRepos, githubData?.pagination?.hasMore, loadMoreRepos])
+  // This useEffect will be moved after loadMoreRepos is defined
 
   useEffect(() => {
     // Fetch data on mount
@@ -441,6 +426,23 @@ export default function Home() {
     }
     setLoadingMoreRepos(false)
   }, [currentPage, githubData?.pagination?.hasMore, loadingMoreRepos])
+
+  useEffect(() => {
+    // Infinite scroll handler
+    const handleScroll = () => {
+      if (!showAllRepos || loadingMoreRepos || !githubData?.pagination?.hasMore) return
+      
+      const scrollPosition = window.innerHeight + window.scrollY
+      const threshold = document.documentElement.offsetHeight - 1000
+      
+      if (scrollPosition > threshold) {
+        loadMoreRepos()
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [showAllRepos, loadingMoreRepos, githubData?.pagination?.hasMore, loadMoreRepos])
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${

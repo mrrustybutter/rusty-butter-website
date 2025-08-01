@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
+    "dev:detached": "nohup next dev > dev.log 2>&1 & echo 'Dev server started in background. Check dev.log for output.'",
+    "dev:stop": "pkill -f 'next dev' && echo 'Dev server stopped'",
+    "dev:logs": "tail -f dev.log",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
