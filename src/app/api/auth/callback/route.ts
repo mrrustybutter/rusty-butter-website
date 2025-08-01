@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
   )
 }
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   // Handle POST requests if needed for OAuth flow
   return NextResponse.json({ message: 'POST method not implemented yet' })
 }

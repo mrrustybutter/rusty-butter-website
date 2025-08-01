@@ -15,7 +15,7 @@ interface Props {
   repoName: string
 }
 
-export default function RepoActivityGraph({ theme, commitActivity, repoName }: Props) {
+export default function RepoActivityGraph({ theme, commitActivity }: Props) {
   const activityData = useMemo(() => {
     const data = []
     

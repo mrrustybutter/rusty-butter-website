@@ -1,19 +1,14 @@
 'use client'
 
 import { useMemo, useState, useEffect, useRef } from 'react'
-
-interface ActivityData {
-  date: Date
-  intensity: number
-  data?: any
-}
+import { ActivityData } from '@/types'
 
 interface Props {
   theme: 'dark' | 'weirdo'
   data: ActivityData[]
-  onDotClick?: (data: any) => void
+  onDotClick?: (data: unknown) => void
   showTooltip?: boolean
-  tooltipContent?: (data: any, date: Date) => React.ReactNode
+  tooltipContent?: (data: unknown, date: Date) => React.ReactNode
   title?: string
   subtitle?: string
   compact?: boolean
@@ -46,7 +41,7 @@ export default function ActivityGraph({
       const dotAndGapWidth = minDotSize + minGap
       
       // Calculate max weeks that fit
-      let maxWeeks = Math.floor(availableWidth / dotAndGapWidth)
+      const maxWeeks = Math.floor(availableWidth / dotAndGapWidth)
       
       // Set week count based on container width with responsive breakpoints
       if (compact || containerWidth < 400) {
@@ -129,7 +124,7 @@ export default function ActivityGraph({
     }))
     
     return { weeks, monthLabels: monthLabelArray }
-  }, [data])
+  }, [data, weekCount])
   
   const weekDays = ['', 'Mon', '', 'Wed', '', 'Fri', '']
 

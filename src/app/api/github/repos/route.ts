@@ -7,8 +7,10 @@ import { NextResponse } from 'next/server'
 
 const GITHUB_USERNAME = 'mrrustybutter'
 
+import { GitHubDataResponse } from '@/types'
+
 // Cache for GitHub data
-let repoDataCache: any = null
+let repoDataCache: GitHubDataResponse | null = null
 let cacheExpiry: number = 0
 const CACHE_DURATION = 10 * 60 * 1000 // 10 minutes cache
 
@@ -146,7 +148,7 @@ export async function GET(request: Request) {
 
         // Calculate primary language
         const primaryLanguage = Object.entries(languages).reduce((a, b) => 
-          (languages as any)[a[0]] > (languages as any)[b[0]] ? a : b, 
+          (languages as Record<string, number>)[a[0]] > (languages as Record<string, number>)[b[0]] ? a : b, 
           [repoData.language || 'Unknown', 0]
         )[0]
 

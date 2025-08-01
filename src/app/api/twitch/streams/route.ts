@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { TwitchDataResponse } from '@/types'
 
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID!
 const TWITCH_CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET!
@@ -8,12 +9,12 @@ let accessToken: string | null = null
 let tokenExpiry: number = 0
 
 // Cache for streaming data by username
-const streamDataCacheByUser = new Map<string, { data: any; expiry: number }>()
+const streamDataCacheByUser = new Map<string, { data: TwitchDataResponse; expiry: number }>()
 const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes cache
 
-async function getTwitchAccessToken() {
+async function getTwitchAccessToken(): Promise<string> {
   if (accessToken && Date.now() < tokenExpiry) {
-    return accessToken
+    return accessToken!
   }
 
   try {
@@ -36,7 +37,7 @@ async function getTwitchAccessToken() {
     const data = await response.json()
     accessToken = data.access_token
     tokenExpiry = Date.now() + (data.expires_in * 1000) - 60000 // Refresh 1 minute early
-    return accessToken
+    return accessToken!
   } catch (error) {
     console.error('Error getting Twitch access token:', error)
     throw error
@@ -126,7 +127,15 @@ export async function GET(request: Request) {
     const channelData = await channelResponse.json()
 
     // Process videos into streaming activity data
-    const streamingActivity = videosData.data.map((video: any) => ({
+    const streamingActivity = videosData.data.map((video: {
+      id: string
+      title: string
+      created_at: string
+      duration: string
+      view_count: number
+      url: string
+      thumbnail_url: string
+    }) => ({
       id: video.id,
       title: video.title,
       date: new Date(video.created_at),

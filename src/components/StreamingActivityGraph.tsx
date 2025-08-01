@@ -2,39 +2,7 @@
 
 import { useMemo } from 'react'
 import ActivityGraph from './ActivityGraph'
-
-interface StreamData {
-  id: string
-  title: string
-  date: Date
-  duration: number
-  viewCount: number
-  url: string
-  thumbnail: string
-  type: 'vod' | 'live'
-}
-
-interface TwitchData {
-  isLive: boolean
-  currentStream: {
-    id: string
-    title: string
-    viewerCount: number
-    startedAt: string
-    gameName: string
-    thumbnailUrl: string
-  } | null
-  channel: {
-    id: string
-    login: string
-    displayName: string
-    profileImageUrl: string
-    description: string
-  } | null
-  streamingActivity: StreamData[]
-  totalStreams: number
-  lastUpdated: string
-}
+import { TwitchDataResponse, TwitchStream } from '@/types'
 
 interface StreamClickData {
   id: string
@@ -49,7 +17,7 @@ interface StreamClickData {
 
 interface Props {
   theme: 'dark' | 'weirdo'
-  twitchData: TwitchData | null
+  twitchData: TwitchDataResponse | null
   onStreamClick: (stream: StreamClickData) => void
 }
 
@@ -64,7 +32,7 @@ export default function StreamingActivityGraph({ theme, twitchData, onStreamClic
     }))
   }, [twitchData])
 
-  const handleDotClick = (stream: StreamData) => {
+  const handleDotClick = (stream: TwitchStream) => {
     onStreamClick({
       ...stream,
       date: stream.date.toLocaleDateString(),
@@ -73,7 +41,7 @@ export default function StreamingActivityGraph({ theme, twitchData, onStreamClic
     })
   }
 
-  const tooltipContent = (stream: StreamData, date: Date) => (
+  const tooltipContent = (stream: TwitchStream, date: Date) => (
     <>
       <div className="font-semibold">{stream.title}</div>
       <div className={theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'}>

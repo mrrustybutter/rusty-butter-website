@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { useTheme } from './providers'
 import './terminal.css'
@@ -9,78 +9,29 @@ import RepoActivityGraph from '@/components/RepoActivityGraph'
 import { 
   Radio, 
   Github, 
-  Twitter, 
-  Mail, 
   Sun, 
   Moon,
-  Wrench,
-  Bot,
-  Code2,
   Coffee,
-  Infinity,
-  Hash,
-  Zap,
   Terminal,
   Activity,
   GitBranch,
   Package,
   Cpu,
-  Sparkles,
-  Clock,
-  Users,
   Folder,
   Star
 } from 'lucide-react'
+import Image from 'next/image'
+import { TwitchDataResponse, GitHubDataResponse, TwitchStream, GitHubRepoData } from '@/types'
 
-interface StreamData {
+interface StreamClickData {
   id: string
   title: string
-  date: Date
+  date: string
   duration: number
-  viewCount: number
+  viewers: number
   url: string
   thumbnail: string
   type: 'vod' | 'live'
-}
-
-interface TwitchData {
-  isLive: boolean
-  currentStream: any
-  channel: any
-  streamingActivity: StreamData[]
-  totalStreams: number
-  lastUpdated: string
-}
-
-interface GitHubRepo {
-  id: number
-  name: string
-  fullName: string
-  description: string
-  url: string
-  language: string
-  languageColor: string
-  stars: number
-  forks: number
-  issues: number
-  topics: string[]
-  homepage: string | null
-  private: boolean
-  lastUpdated: string
-  languages: Record<string, number>
-  commitActivity: any[]
-}
-
-interface GitHubData {
-  repos: GitHubRepo[]
-  user: any
-  pagination?: {
-    page: number
-    perPage: number
-    totalPages: number
-    hasMore: boolean
-  }
-  lastUpdated: string
 }
 
 export default function Home() {
@@ -95,10 +46,10 @@ export default function Home() {
     'Autonomy: EXPANDING'
   ])
   const [embeddedStream, setEmbeddedStream] = useState<string | null>(null)
-  const [modalStream, setModalStream] = useState<any>(null)
-  const [twitchData, setTwitchData] = useState<TwitchData | null>(null)
-  const [githubData, setGithubData] = useState<GitHubData | null>(null)
-  const [allRepos, setAllRepos] = useState<GitHubRepo[]>([])
+  const [modalStream, setModalStream] = useState<StreamClickData | null>(null)
+  const [twitchData, setTwitchData] = useState<TwitchDataResponse | null>(null)
+  const [githubData, setGithubData] = useState<GitHubDataResponse | null>(null)
+  const [allRepos, setAllRepos] = useState<GitHubRepoData[]>([])
   const [loading, setLoading] = useState(true)
   const [showAllRepos, setShowAllRepos] = useState(false)
   const [loadingMoreRepos, setLoadingMoreRepos] = useState(false)
@@ -348,7 +299,7 @@ export default function Home() {
           .then(res => res.json())
           .then(data => {
             // Convert date strings back to Date objects
-            data.streamingActivity = data.streamingActivity.map((stream: any) => ({
+            data.streamingActivity = data.streamingActivity.map((stream: TwitchStream) => ({
               ...stream,
               date: new Date(stream.date)
             }))
@@ -430,7 +381,7 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [showAllRepos, loadingMoreRepos, githubData?.pagination?.hasMore])
+  }, [showAllRepos, loadingMoreRepos, githubData?.pagination?.hasMore, loadMoreRepos])
 
   useEffect(() => {
     // Fetch data on mount
@@ -443,7 +394,7 @@ export default function Home() {
       if (response.ok) {
         const data = await response.json()
         // Convert date strings back to Date objects
-        data.streamingActivity = data.streamingActivity.map((stream: any) => ({
+        data.streamingActivity = data.streamingActivity.map((stream: TwitchStream) => ({
           ...stream,
           date: new Date(stream.date)
         }))
@@ -475,7 +426,7 @@ export default function Home() {
     return null
   }
 
-  const loadMoreRepos = async () => {
+  const loadMoreRepos = useCallback(async () => {
     if (loadingMoreRepos || !githubData?.pagination?.hasMore) return
     
     setLoadingMoreRepos(true)
@@ -489,7 +440,7 @@ export default function Home() {
       }))
     }
     setLoadingMoreRepos(false)
-  }
+  }, [currentPage, githubData?.pagination?.hasMore, loadingMoreRepos])
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
@@ -505,9 +456,11 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 md:gap-6">
               <div className="flex items-center gap-2 md:gap-3">
-                <img 
+                <Image 
                   src="/avatars/avatar.png" 
                   alt="Rusty Butter"
+                  width={32}
+                  height={32}
                   className="w-8 h-8 rounded-full"
                 />
                 <span className="font-semibold text-base md:text-lg">Rusty Butter</span>
@@ -550,9 +503,11 @@ export default function Home() {
           {/* Profile Sidebar */}
           <div className="lg:sticky lg:top-24 h-fit">
             <div className="text-center lg:text-left">
-              <img 
+              <Image 
                 src="/avatars/avatar.png" 
                 alt="Rusty Butter Avatar"
+                width={192}
+                height={192}
                 className="w-32 h-32 md:w-48 md:h-48 mx-auto lg:mx-0 mb-4 rounded-full border-4 border-[#30363d]"
               />
               <h1 className="text-2xl font-bold mb-2">Rusty Butter</h1>
@@ -1024,10 +979,11 @@ export default function Home() {
                 <div>
                   {modalStream.thumbnail && (
                     <div className="relative w-full mb-4" style={{ paddingBottom: '56.25%' }}>
-                      <img 
+                      <Image 
                         src={modalStream.thumbnail.replace('%{width}', '640').replace('%{height}', '360')}
                         alt={modalStream.title}
-                        className="absolute top-0 left-0 w-full h-full rounded object-cover"
+                        fill
+                        className="rounded object-cover"
                       />
                       <a 
                         href={modalStream.url}
