@@ -134,7 +134,7 @@ export default function Home() {
       case cmd === 'stream':
         newHistory.push('[STREAM INFORMATION]')
         newHistory.push('> Platform: Twitch')
-        newHistory.push('> Channel: twitch.tv/rustybutterbot')
+        newHistory.push('> Channel: twitch.tv/mrrustybutter')
         newHistory.push('> Status: LIVE NOW!')
         newHistory.push('> Uptime: 24/7/365')
         newHistory.push('> Current Viewers: OVER 9000!')
@@ -180,7 +180,7 @@ export default function Home() {
       
       case cmd === 'social':
         newHistory.push('[CONNECT WITH RUSTY]')
-        newHistory.push('> Twitch: twitch.tv/rustybutterbot')
+        newHistory.push('> Twitch: twitch.tv/mrrustybutter')
         newHistory.push('> GitHub: github.com/mrrustybutter')
         newHistory.push('> Twitter: @mrrustybutter')
         newHistory.push('> Email: contact@rustybutter.dev')
@@ -328,7 +328,7 @@ export default function Home() {
       
       case cmd.startsWith('stream embed'):
         const streamCmd = cmd.split(' ')
-        const username = streamCmd[2] || 'rustybutterbot'
+        const username = streamCmd[2] || 'mrrustybutter'
         newHistory.push(`[STREAM EMBED] Loading ${username}'s stream...`)
         newHistory.push(`[+] Stream embedded! Channel: ${username}`)
         setEmbeddedStream(username)
@@ -336,7 +336,7 @@ export default function Home() {
       
       case cmd.startsWith('stream activity'):
         const activityCmd = cmd.split(' ')
-        const streamerUsername = activityCmd[2] || 'rustybutterbot'
+        const streamerUsername = activityCmd[2] || 'mrrustybutter'
         newHistory.push(`[STREAM ACTIVITY] Loading ${streamerUsername}'s streaming history...`)
         setTerminalHistory(newHistory)
         setTerminalInput('')
@@ -362,7 +362,7 @@ export default function Home() {
       case cmd === 'stream' && !cmd.includes('embed'):
         newHistory.push('[STREAM INFORMATION]')
         newHistory.push('> Platform: Twitch')
-        newHistory.push('> Channel: twitch.tv/rustybutterbot')
+        newHistory.push('> Channel: twitch.tv/mrrustybutter')
         newHistory.push('> Status: LIVE NOW!')
         newHistory.push('> Uptime: 24/7/365')
         newHistory.push('> Current Viewers: OVER 9000!')
@@ -594,7 +594,7 @@ export default function Home() {
                 <Link href="#tools" className={`hover:underline text-sm ${
                   theme === 'dark' ? 'text-[#c9d1d9]' : 'text-gray-700'
                 }`}>Tools</Link>
-                <Link href="https://twitch.tv/rustybutterbot" className={`hover:underline text-sm flex items-center gap-1 ${
+                <Link href="https://twitch.tv/mrrustybutter" className={`hover:underline text-sm flex items-center gap-1 ${
                   theme === 'dark' ? 'text-[#c9d1d9]' : 'text-gray-700'
                 }`}>
                   <Radio className="w-3 h-3" />
@@ -639,7 +639,7 @@ export default function Home() {
               <h1 className="text-2xl font-bold mb-2">Rusty Butter</h1>
               <p className={`text-lg mb-4 ${
                 theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'
-              }`}>@rustybutterbot</p>
+              }`}>@mrrustybutter</p>
               
               <p className={`mb-6 ${
                 theme === 'dark' ? 'text-[#c9d1d9]' : 'text-gray-700'
@@ -679,7 +679,7 @@ export default function Home() {
 
               <div className="flex flex-col gap-2 px-4 sm:px-0">
                 <Link 
-                  href="https://twitch.tv/rustybutterbot" 
+                  href="https://twitch.tv/mrrustybutter" 
                   className={`flex items-center justify-center gap-2 px-4 py-2 rounded-md border transition-colors ${
                     theme === 'dark'
                       ? 'border-[#30363d] bg-[#21262d] hover:bg-[#30363d] text-[#c9d1d9]'
@@ -1091,7 +1091,7 @@ export default function Home() {
               <ul className={`space-y-2 text-xs md:text-sm ${
                 theme === 'dark' ? 'text-[#8b949e]' : 'text-gray-600'
               }`}>
-                <li><Link href="https://twitch.tv/rustybutterbot" className="hover:underline">Twitch</Link></li>
+                <li><Link href="https://twitch.tv/mrrustybutter" className="hover:underline">Twitch</Link></li>
                 <li><Link href="#" className="hover:underline">Schedule</Link></li>
                 <li><Link href="#" className="hover:underline">VODs</Link></li>
               </ul>
@@ -1190,7 +1190,7 @@ export default function Home() {
                 <div>
                   <div className="relative w-full mb-4" style={{ paddingBottom: '56.25%' }}>
                     <iframe
-                      src={`https://player.twitch.tv/?channel=rustybutterbot&parent=${window.location.hostname}&muted=false`}
+                      src={`https://player.twitch.tv/?channel=mrrustybutter&parent=${window.location.hostname}&muted=false`}
                       className="absolute top-0 left-0 w-full h-full rounded"
                       frameBorder="0"
                       allowFullScreen

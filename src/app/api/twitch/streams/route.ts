@@ -67,7 +67,7 @@ async function getUserId(username: string, token: string) {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const username = searchParams.get('username') || 'rustybutterbot'
+  const username = searchParams.get('username') || 'mrrustybutter'
   
   // Return error if environment variables are missing
   if (!TWITCH_CLIENT_ID || !TWITCH_CLIENT_SECRET) {
